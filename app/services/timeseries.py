@@ -1,5 +1,5 @@
 from collections.abc import Iterable
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.schemas import NormalizedChartData, PerformanceSeriesInput, TimeSeriesPoint
 
@@ -34,7 +34,7 @@ def _index_series(
 
     for point in points:
         # Независимые серии связываются по моменту времени, а не по позиции элемента.
-        timestamp = point.timestamp.astimezone(timezone.utc)
+        timestamp = point.timestamp.astimezone(UTC)
         if timestamp in result:
             raise DuplicateTimestampError(
                 f"Series '{series_name}' contains duplicate timestamp {timestamp.isoformat()}"

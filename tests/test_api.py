@@ -1,11 +1,10 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from fastapi.testclient import TestClient
 
 from app.main import app, create_app
 from app.schemas import PerformanceSeriesInput, TimeSeriesPoint
 
-UTC = timezone.utc
 client = TestClient(app)
 
 

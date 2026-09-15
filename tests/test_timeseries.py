@@ -1,11 +1,9 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta, timezone
 
 import pytest
 
 from app.schemas import PerformanceSeriesInput, TimeSeriesPoint
 from app.services.timeseries import DuplicateTimestampError, normalize_series
-
-UTC = timezone.utc
 
 
 def point(day: int, value: float, *, tz: timezone = UTC) -> TimeSeriesPoint:

@@ -1,11 +1,11 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.schemas import PerformanceSeriesInput, TimeSeriesPoint
 
 
 def _point(day: int, value: float) -> TimeSeriesPoint:
     return TimeSeriesPoint(
-        timestamp=datetime(2026, 6, day, tzinfo=timezone.utc),
+        timestamp=datetime(2026, 6, day, tzinfo=UTC),
         value=value,
     )
 
