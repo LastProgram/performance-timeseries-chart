@@ -9,7 +9,18 @@
   <body>
     <main class="page-shell">
       <section class="chart-stage" aria-label="Performance metrics chart">
-        <div id="performance-chart" class="chart-frame"></div>
+        <div class="chart-wrap">
+          <aside class="today-summary" aria-label="Today summary">
+            <div class="today-summary__header">Tdy</div>
+            <div class="today-summary__value">0%</div>
+            <div class="today-summary__value">$0</div>
+            <div class="today-summary__value">$0</div>
+            <div class="today-summary__value">0</div>
+            <div class="today-summary__value">0</div>
+            <div class="today-summary__value">—</div>
+          </aside>
+          <div id="performance-chart" class="chart-frame"></div>
+        </div>
         <p id="chart-error" class="chart-error" hidden></p>
       </section>
     </main>

@@ -13,6 +13,11 @@ def test_index_serves_chart_page() -> None:
 
     assert response.status_code == 200
     assert 'id="performance-chart"' in response.text
+    assert 'class="today-summary"' in response.text
+    assert "Tdy" in response.text
+    assert "0%" in response.text
+    assert "$0" in response.text
+    assert "—" in response.text
 
 
 def test_demo_chart_matches_reference_values() -> None:
