@@ -27,12 +27,11 @@ Each point has a timezone-aware timestamp and a numeric value. The four sequence
 
 ```python
 # custom_app.py
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.main import create_app
 from app.schemas import PerformanceSeriesInput, TimeSeriesPoint
 
-UTC = timezone.utc
 
 def point(day: int, value: float) -> TimeSeriesPoint:
     return TimeSeriesPoint(
@@ -40,11 +39,36 @@ def point(day: int, value: float) -> TimeSeriesPoint:
         value=value,
     )
 
+
 chart_data = PerformanceSeriesInput(
-    cost=[point(10, 20.0), point(11, 31.4), point(12, 44.36)],
-    cpa=[point(10, 0.9), point(12, 1.23)],
-    roi_confirmed=[point(10, 210.0), point(11, 184.2), point(12, 161.47)],
-    conversions=[point(10, 12), point(11, 24), point(12, 36)],
+    cost=[
+        point(10, 2.04),
+        point(11, 25.85),
+        point(12, 44.35),
+        point(13, 55.65),
+        point(14, 63.75),
+    ],
+    cpa=[
+        point(10, 0.68),
+        point(11, 0.86),
+        point(12, 1.23),
+        point(13, 0.79),
+        point(14, 0.71),
+    ],
+    roi_confirmed=[
+        point(10, 610.78),
+        point(11, 180.50),
+        point(12, 161.47),
+        point(13, 56.33),
+        point(14, 357.25),
+    ],
+    conversions=[
+        point(10, 3),
+        point(11, 30),
+        point(12, 36),
+        point(13, 70),
+        point(14, 90),
+    ],
 )
 
 app = create_app(chart_data)
@@ -62,7 +86,7 @@ Equivalent JSON can be validated and normalized with `POST /api/chart/normalize`
 
 ```json
 {
-  "cost": [{"timestamp": "2026-06-12T00:00:00Z", "value": 44.36}],
+  "cost": [{"timestamp": "2026-06-12T00:00:00Z", "value": 44.35}],
   "cpa": [{"timestamp": "2026-06-12T00:00:00Z", "value": 1.23}],
   "roi_confirmed": [{"timestamp": "2026-06-12T00:00:00Z", "value": 161.47}],
   "conversions": [{"timestamp": "2026-06-12T00:00:00Z", "value": 36}]
