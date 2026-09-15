@@ -60,7 +60,7 @@ function buildOption(data) {
     grid: {
       left: 58,
       right: 54,
-      top: 42,
+      top: 0,
       bottom: 0,
       containLabel: false,
     },
@@ -101,12 +101,12 @@ function buildOption(data) {
         lineStyle: { color: "#aeb8bc", width: 1 },
       },
     },
-    // У метрик разные единицы измерения. Отдельные скрытые шкалы нужны не только для
-    // читаемости значений, но и для сохранения визуальных пропорций исходного графика.
+    // У метрик разные единицы измерения. Отдельные скрытые шкалы сохраняют
+    // относительную высоту каждой серии такой же, как в исходном графике.
     yAxis: [
       hiddenValueAxis(75),
       hiddenValueAxis(750),
-      hiddenValueAxis(100),
+      hiddenValueAxis(120),
       hiddenValueAxis(100),
     ],
     series: [
