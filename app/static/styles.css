@@ -10,7 +10,7 @@ body {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #e7f1fb;
+  background: #e5f0fc;
   color: #202124;
 }
 
@@ -19,26 +19,28 @@ body {
 }
 
 .chart-stage {
-  min-height: 430px;
-  padding: 19px 24px 116px;
-  background: #f7dde1;
+  min-height: 426px;
+  padding: 19px 24px 112px;
+  background: #fce0e3;
 }
 
 .chart-frame {
-  width: min(590px, 100%);
+  position: relative;
+  left: 7px;
+  width: min(592px, 100%);
   height: 295px;
   margin: 0 auto;
-  border: 1px solid #bcc5c8;
+  border: 1px solid #cac7c8;
 }
 
 .chart-error {
-  width: min(590px, 100%);
+  width: min(592px, 100%);
   margin: 12px auto 0;
   font-size: 14px;
 }
 
 .chart-tooltip {
-  min-width: 285px;
+  min-width: 296px;
 }
 
 .tooltip-date {
@@ -77,6 +79,8 @@ body {
   }
 
   .chart-frame {
+    left: 0;
+    width: 100%;
     height: 260px;
   }
 
