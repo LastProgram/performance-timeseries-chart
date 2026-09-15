@@ -163,7 +163,7 @@ function buildOption(data) {
 
 async function loadChart() {
   try {
-    const response = await fetch("/api/chart/demo");
+    const response = await fetch("/api/chart");
     if (!response.ok) {
       throw new Error(`Chart data request failed with status ${response.status}`);
     }
