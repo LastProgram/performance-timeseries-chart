@@ -2,6 +2,8 @@
 
 A small FastAPI application that reproduces the provided mixed performance chart: `area`, `bar`, `spline`, and `line` series with a shared tooltip.
 
+The demo also reproduces the `Tdy` summary column shown to the left of the chart, including its reference values and spacing.
+
 The backend owns the time-series contract and alignment. The browser only receives normalized data and renders it with ECharts, so the project stays Python-first and does not require a Node.js toolchain.
 
 ## Run
