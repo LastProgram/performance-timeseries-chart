@@ -42,6 +42,18 @@ function tooltipHtml(data, dataIndex) {
   `;
 }
 
+function hiddenValueAxis(max) {
+  return {
+    type: "value",
+    min: 0,
+    max,
+    axisLabel: { show: false },
+    axisTick: { show: false },
+    axisLine: { show: false },
+    splitLine: { show: false },
+  };
+}
+
 function buildOption(data) {
   return {
     animation: false,
@@ -89,43 +101,13 @@ function buildOption(data) {
         lineStyle: { color: "#aeb8bc", width: 1 },
       },
     },
+    // У метрик разные единицы измерения. Отдельные скрытые шкалы нужны не только для
+    // читаемости значений, но и для сохранения визуальных пропорций исходного графика.
     yAxis: [
-      {
-        type: "value",
-        min: 0,
-        max: 70,
-        axisLabel: { show: false },
-        axisTick: { show: false },
-        axisLine: { show: false },
-        splitLine: { show: false },
-      },
-      {
-        type: "value",
-        min: 0,
-        max: 650,
-        axisLabel: { show: false },
-        axisTick: { show: false },
-        axisLine: { show: false },
-        splitLine: { show: false },
-      },
-      {
-        type: "value",
-        min: 0,
-        max: 70,
-        axisLabel: { show: false },
-        axisTick: { show: false },
-        axisLine: { show: false },
-        splitLine: { show: false },
-      },
-      {
-        type: "value",
-        min: 0,
-        max: 100,
-        axisLabel: { show: false },
-        axisTick: { show: false },
-        axisLine: { show: false },
-        splitLine: { show: false },
-      },
+      hiddenValueAxis(75),
+      hiddenValueAxis(750),
+      hiddenValueAxis(100),
+      hiddenValueAxis(100),
     ],
     series: [
       {
